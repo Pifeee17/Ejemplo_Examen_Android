@@ -1,5 +1,6 @@
 package com.pife.ejemplo_examen;
 
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ import java.util.zip.Inflater;
 public class Adaptador extends RecyclerView.Adapter<Adaptador.MiCelda>{
 ArrayList<Personaje> personajes;
 
-int pos;
+int pos = RecyclerView.NO_POSITION;
 
       public int getPos() {
             return pos;
@@ -33,7 +34,7 @@ int pos;
             }
       }
 
-      public Adaptador(ArrayList<Personaje> personajes) {
+      public Adaptador(ArrayList<Personaje> personajes ) {
             this.personajes = personajes;
       }
 
@@ -77,6 +78,9 @@ int pos;
                         public void onClick(View v) {
                               int pos = getAbsoluteAdapterPosition();
                               setPos(pos);
+                              MainActivity main = (MainActivity) itemView.getContext();
+
+                              main.actionBar.setTitle(personajes.get(pos).getNombre());
                         }
                   });
             }

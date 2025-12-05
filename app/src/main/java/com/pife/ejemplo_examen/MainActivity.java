@@ -3,6 +3,7 @@ package com.pife.ejemplo_examen;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -17,6 +18,7 @@ RecyclerView rv;
 ArrayList<Personaje> personajes;
 GridLayoutManager gridLayoutManager;
 Adaptador ada;
+ActionBar actionBar;
       @Override
       protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -30,9 +32,14 @@ Adaptador ada;
             personajes = generaPersonajes();
             rv = findViewById(R.id.rv);
             ada = new Adaptador(personajes);
+
             rv.setAdapter(ada);
             gridLayoutManager = new GridLayoutManager(this,2);
             rv.setLayoutManager(gridLayoutManager);
+
+            actionBar = getSupportActionBar();
+
+            actionBar.setSubtitle("" + personajes.size());
 
       }
       ArrayList<Personaje> generaPersonajes(){
