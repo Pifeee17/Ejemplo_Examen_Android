@@ -15,9 +15,9 @@ import java.util.ArrayList;
 import java.util.zip.Inflater;
 
 public class Adaptador extends RecyclerView.Adapter<Adaptador.MiCelda>{
-ArrayList<Personaje> personajes;
+      ArrayList<Personaje> personajes;
 
-int pos = RecyclerView.NO_POSITION;
+      int pos = RecyclerView.NO_POSITION;
 
       public int getPos() {
             return pos;
@@ -78,9 +78,13 @@ int pos = RecyclerView.NO_POSITION;
                         public void onClick(View v) {
                               int pos = getAbsoluteAdapterPosition();
                               setPos(pos);
+                              //El get context se usa para traer la main al adaptador
+                              //Traemos la posicion de arriba y si esta marcada ponemos el nombre de personaje como titulo de la actionBar
+                              //Si no se pone Hotel Transilvania
                               MainActivity main = (MainActivity) itemView.getContext();
-
-                              main.actionBar.setTitle(personajes.get(pos).getNombre());
+                               if (getPos() !=RecyclerView.NO_POSITION) {
+                                     main.actionBar.setTitle(personajes.get(pos).getNombre());
+                               }else main.actionBar.setTitle("Hotel Transilvania");
                         }
                   });
             }
