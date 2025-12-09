@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mGrid"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="@string/Grid"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/mVer"
+        android:icon="@android:drawable/stat_notify_chat"
+        android:title="@string/VerActores"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/mBorrar"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="@string/Borrar"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/mModificar"
+        android:title="@string/Modificar" />
+</menu>

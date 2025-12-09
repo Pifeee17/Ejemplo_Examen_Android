@@ -2,4 +2,8 @@
     <string name="app_name">Nombre/Apellidos/ExamenEjemplo</string>
     <string name="nombre">Nombre</string>
     <string name="posicion">Posicion</string>
+    <string name="Grid">Grid</string>
+    <string name="VerActores">Ver Actores</string>
+    <string name="Borrar">Borrar</string>
+    <string name="Modificar">Modificar</string>
 </resources>

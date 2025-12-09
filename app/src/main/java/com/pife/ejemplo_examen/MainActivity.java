@@ -1,8 +1,11 @@
 package com.pife.ejemplo_examen;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -31,11 +34,13 @@ ActionBar actionBar;
             });
             personajes = generaPersonajes();
             rv = findViewById(R.id.rv);
+
+            gridLayoutManager = new GridLayoutManager(this,2);
+            rv.setLayoutManager(gridLayoutManager);
+
             ada = new Adaptador(personajes);
 
             rv.setAdapter(ada);
-            gridLayoutManager = new GridLayoutManager(this,2);
-            rv.setLayoutManager(gridLayoutManager);
 
             actionBar = getSupportActionBar();
 
@@ -78,5 +83,24 @@ ActionBar actionBar;
             datos.add(new Personaje( "Eunice", 4.0f, R.drawable.eunice, false, "Fran Drescher",R.drawable.fran_drescher,"Hotel transilvania 1"));
             datos.get(15).setDescripcion("Frankenstein's wife and Wanda's best friend. Is the mother of Hank N. Stein.");
             return datos;
+      }
+
+      @Override
+      public boolean onCreateOptionsMenu(Menu menu) {
+            getMenuInflater().inflate(R.menu.princi, menu);
+            return super.onCreateOptionsMenu(menu);
+      }
+
+      @Override
+      public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+            if(item.getItemId()==R.id.mGrid){
+                  int columnas = gridLayoutManager.getSpanCount();
+                  columnas ++;
+                  if(columnas > 3) columnas=1;
+                  gridLayoutManager.setSpanCount(columnas);
+                  ada.notifyDataSetChanged();
+            }
+            return super.onOptionsItemSelected(item);
       }
 }

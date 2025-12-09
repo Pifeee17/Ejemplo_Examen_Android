@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MiCelda>{
             }
       }
 
-      public Adaptador(ArrayList<Personaje> personajes ) {
+      public Adaptador(ArrayList<Personaje> personajes) {
             this.personajes = personajes;
       }
 
@@ -58,6 +59,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MiCelda>{
       }else{
             holder.itemView.setBackgroundResource(R.color.NoMarcado);
       }
+
       }
 
       @Override
