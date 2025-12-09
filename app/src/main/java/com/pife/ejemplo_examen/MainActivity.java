@@ -1,5 +1,6 @@
 package com.pife.ejemplo_examen;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -103,7 +104,8 @@ ActionBar actionBar;
                   gridLayoutManager.setSpanCount(columnas);
                   ada.notifyDataSetChanged();
             }else if(item.getItemId()==R.id.mVer){
-
+            Intent it = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(it);
             }else if(item.getItemId()==R.id.mBorrar){
                   personajes.remove(pos);
                   ada.notifyItemRemoved(pos);
