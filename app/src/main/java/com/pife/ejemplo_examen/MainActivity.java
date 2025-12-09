@@ -100,6 +100,8 @@ ActionBar actionBar;
                   if(columnas > 3) columnas=1;
                   gridLayoutManager.setSpanCount(columnas);
                   ada.notifyDataSetChanged();
+            }else if(item.getItemId()==R.id.mVer){
+
             }
             return super.onOptionsItemSelected(item);
       }
