@@ -94,6 +94,8 @@ ActionBar actionBar;
       @Override
       public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
+            int pos = ada.getPos();
+
             if(item.getItemId()==R.id.mGrid){
                   int columnas = gridLayoutManager.getSpanCount();
                   columnas ++;
@@ -102,6 +104,16 @@ ActionBar actionBar;
                   ada.notifyDataSetChanged();
             }else if(item.getItemId()==R.id.mVer){
 
+            }else if(item.getItemId()==R.id.mBorrar){
+                  personajes.remove(pos);
+                  ada.notifyItemRemoved(pos);
+                  ada.setPos(RecyclerView.NO_POSITION);
+
+                  actionBar.setSubtitle(personajes.size() + "");
+
+                  for (int i = 0; i < personajes.size(); i++) {
+                        ada.notifyItemChanged(i);
+                  }
             }
             return super.onOptionsItemSelected(item);
       }
