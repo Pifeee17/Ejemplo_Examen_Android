@@ -1,8 +1,10 @@
 package com.pife.ejemplo_examen;
 
 
+import java.io.Serializable;
+
 // parametros en el contructor: nombre, valoracion, imagen, favorito, actorOriginal, imagenActor, pelicula
-public class Personaje {
+public class Personaje implements Serializable {
       String nombre, actorOriginal, pelicula, descripcion;
       float valoracion;
       int imagen, imagenActor;

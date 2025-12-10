@@ -7,4 +7,5 @@
     <string name="Borrar">Borrar</string>
     <string name="Modificar">Modificar</string>
     <string name="Guardar">Guardar</string>
+    <string name="Introduce">Introduce el nombre del personaje</string>
 </resources>

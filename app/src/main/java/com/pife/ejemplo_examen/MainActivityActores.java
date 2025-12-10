@@ -39,7 +39,7 @@ public class MainActivityActores extends AppCompatActivity {
             actionBar.setTitle("Actores");
             actionBar.setDisplayHomeAsUpEnabled(true);
 
-            rv = findViewById(R.id.rv);
+            rv = findViewById(R.id.rv2);
 
             gridLayoutManager = new GridLayoutManager(this,2);
             rv.setLayoutManager(gridLayoutManager);

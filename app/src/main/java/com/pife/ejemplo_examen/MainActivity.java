@@ -8,6 +8,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,10 +50,28 @@ ActionBar actionBar;
             rv.setAdapter(ada);
 
             actionBar = getSupportActionBar();
-
+            actionBar.setTitle("Hotel Transilvania");
             actionBar.setSubtitle("" + personajes.size());
 
       }
+
+      ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                  if(result.getResultCode()==RESULT_OK){
+                        Intent intent = result.getData();
+//                        int pos = intent.getIntExtra("posicion", -1);
+                        int pos =ada.getPos();
+                        String nombre = intent.getStringExtra("nombre");
+                        Float valoracion = intent.getFloatExtra("valoracion", 0);
+
+                              Personaje personaje = personajes.get(pos);
+                              personaje.setNombre(nombre);
+                              personaje.setValoracion(valoracion);
+                              ada.notifyItemChanged(pos);
+                        }
+                  }
+      });
       ArrayList<Personaje> generaPersonajes(){
             ArrayList<Personaje> datos=new ArrayList<>();
 
@@ -106,7 +128,7 @@ ActionBar actionBar;
                   gridLayoutManager.setSpanCount(columnas);
                   ada.notifyDataSetChanged();
             }else if(item.getItemId()==R.id.mVer){
-            Intent it = new Intent(MainActivity.this, MainActivity.class);
+            Intent it = new Intent(MainActivity.this, MainActivityActores.class);
             startActivity(it);
             }else if(item.getItemId()==R.id.mBorrar){
                   personajes.remove(pos);
@@ -120,8 +142,8 @@ ActionBar actionBar;
                   }
             } else if (item.getItemId()==R.id.mModificar) {
                   Intent it = new Intent(MainActivity.this, MainActivityModificar.class);
-                  it.putExtra("posicion", pos);
-                  startActivity(it);
+                  it.putExtra("perso", personajes.get( pos));
+                  launcher.launch(it);
             }
             return super.onOptionsItemSelected(item);
       }
