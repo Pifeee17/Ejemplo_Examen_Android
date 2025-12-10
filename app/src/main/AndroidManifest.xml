@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ejemplo_Examen">
         <activity
+            android:name=".MainActivityModificar"
+            android:exported="false" />
+        <activity
             android:name=".MainActivityActores"
             android:exported="false" />
         <activity

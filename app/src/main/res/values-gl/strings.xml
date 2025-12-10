@@ -7,4 +7,5 @@
     <string name="VerActores">Ver Actores</string>
     <string name="Borrar">Borrar</string>
     <string name="Modificar">Modificar</string>
+    <string name="Guardar">Gardar</string>
 </resources>

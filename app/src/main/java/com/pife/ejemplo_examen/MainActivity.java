@@ -1,6 +1,8 @@
 package com.pife.ejemplo_examen;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -116,6 +118,10 @@ ActionBar actionBar;
                   for (int i = 0; i < personajes.size(); i++) {
                         ada.notifyItemChanged(i);
                   }
+            } else if (item.getItemId()==R.id.mModificar) {
+                  Intent it = new Intent(MainActivity.this, MainActivityModificar.class);
+                  it.putExtra("posicion", pos);
+                  startActivity(it);
             }
             return super.onOptionsItemSelected(item);
       }
